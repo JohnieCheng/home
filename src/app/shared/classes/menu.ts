@@ -6,9 +6,8 @@ export class Menu {
     path!: string;
     icon!: string;
     seqNum!: number;
-    parentMenuNo!: number;
-    parentMenuName!: number;
-    topMenuId!: number;
+    parentMenuNo!: string;
+    parentMenuName!: string;
     isTopMenu!: boolean;
     isMenu!: boolean;
     isLeafNode!: boolean;

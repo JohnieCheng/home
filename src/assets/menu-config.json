@@ -1,0 +1,95 @@
+[
+  {
+    "no": "1001001",
+    "name": "sysMenus",
+    "customName": "sysMenus",
+    "roleType": "0",
+    "path": "/sys",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "",
+    "parentMenuName": "",
+    "isTopMenu": true,
+    "isMenu": false,
+    "isLeafNode": false
+  },
+
+
+
+
+  {
+    "no": "2001001",
+    "name": "adminMenus",
+    "customName": "adminMenus",
+    "roleType": "1",
+    "path": "/admin",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "",
+    "parentMenuName": "",
+    "isTopMenu": true,
+    "isMenu": false,
+    "isLeafNode": false
+  },
+
+
+
+
+  {
+    "no": "3001001",
+    "name": "userMenus",
+    "customName": "userMenus",
+    "roleType": "2",
+    "path": "",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "",
+    "parentMenuName": "",
+    "isTopMenu": true,
+    "isMenu": false,
+    "isLeafNode": false
+  },
+  {
+    "no": "3002001",
+    "name": "topMenus",
+    "customName": "topMenus",
+    "roleType": "2",
+    "path": "",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "3001001",
+    "parentMenuName": "userMenus",
+    "isTopMenu": false,
+    "isMenu": false,
+    "isLeafNode": false
+  },
+  {
+    "no": "3003001",
+    "name": "sideBarMenus",
+    "customName": "sideBarMenus",
+    "roleType": "2",
+    "path": "",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "3001001",
+    "parentMenuName": "userMenus",
+    "isTopMenu": false,
+    "isMenu": false,
+    "isLeafNode": false
+  },
+  {
+    "no": "3003011",
+    "name": "Todo",
+    "customName": "Todo",
+    "roleType": "2",
+    "path": "",
+    "icon": "",
+    "seqNum": "1",
+    "parentMenuNo": "3003001",
+    "parentMenuName": "sideBarMenus",
+    "isTopMenu": false,
+    "isMenu": true,
+    "isLeafNode": true
+  }
+
+]
