@@ -21,8 +21,8 @@ export class SidebarComponent implements OnInit {
             count += 1000;
             let menu: MenuVo = {
                 no: 1000000 + count + i + '',
-                customName: '菜单' + (i + 1),
-                path: '/user/favorite',
+                customName: 'Todo',
+                path: '/user/todo',
                 icon: '',
                 seqNum: 1,
                 menus: [
