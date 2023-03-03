@@ -1,0 +1,53 @@
+<header>
+    <mat-toolbar>
+
+        <button
+                mat-icon-button
+                (click)="toggleSideBar($event)">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <a routerLink="/">App</a>
+
+        <span class="spacer"></span>
+
+        <button
+                routerLink="/user/favorite"
+                mat-icon-button>
+            <mat-icon>favorite</mat-icon>
+        </button>
+
+        <button
+                routerLink="/user/info"
+                mat-icon-button>
+            <mat-icon>info</mat-icon>
+        </button>
+
+        <button
+                routerLink="/user/personal_center"
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+        >
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                修改密码
+                <mat-icon>restart_alt</mat-icon>
+            </button>
+            <button mat-menu-item>
+                退出登录
+                <mat-icon>logout</mat-icon>
+            </button>
+        </mat-menu>
+
+        <button
+                routerLink="/login"
+                mat-icon-button
+        >
+            <mat-icon>login</mat-icon>
+        </button>
+
+    </mat-toolbar>
+</header>
+

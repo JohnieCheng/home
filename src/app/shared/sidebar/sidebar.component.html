@@ -1,0 +1,18 @@
+<p>Auto-resizing sidenav</p>
+<p>Lorem, ipsum dolor sit amet consectetur.</p>
+<mat-list>
+    <ng-container *ngIf="hasMenu()">
+        <ng-container *ngTemplateOutlet="menuList"></ng-container>
+    </ng-container>
+</mat-list>
+
+<ng-template #menuList>
+    <ng-container *ngFor="let menu of menus; last as isLast">
+        <mat-list-item [routerLink]="menu.path">
+            {{menu.customName}}
+            <mat-icon>{{menu.icon}}</mat-icon>
+        </mat-list-item>
+        <mat-divider *ngIf="!isLast"></mat-divider>
+    </ng-container>
+</ng-template>
+

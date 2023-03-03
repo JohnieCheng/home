@@ -4,6 +4,7 @@ import {provideRouter, withDebugTracing, withHashLocation, withRouterConfig} fro
 import {APP_ROUTES} from "./app/app-routing.config";
 import {importProvidersFrom} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 bootstrapApplication(AppComponent, {
     providers: [
@@ -15,6 +16,8 @@ bootstrapApplication(AppComponent, {
                 }),
             withHashLocation()
         ),
-        importProvidersFrom(HttpClientModule)
+        importProvidersFrom(HttpClientModule),
+        importProvidersFrom(BrowserAnimationsModule),
+
     ]
 }).then().catch(err => console.error(err));

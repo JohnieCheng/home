@@ -1,0 +1,15 @@
+<app-header (onToggled)="drawer.toggle()"></app-header>
+<body>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+</mat-drawer-container>
+</body>
+
+<app-footer></app-footer>
