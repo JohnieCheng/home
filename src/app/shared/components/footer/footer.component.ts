@@ -7,7 +7,7 @@ import {MatListModule} from "@angular/material/list";
     standalone: true,
     imports: [CommonModule, MatListModule],
     templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.css']
+    styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
 

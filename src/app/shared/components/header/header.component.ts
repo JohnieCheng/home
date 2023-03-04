@@ -18,7 +18,7 @@ import {MatMenuModule} from "@angular/material/menu";
         CommonModule,
         MatMenuModule
     ],
-    styleUrls: ['./header.component.css']
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
     @Output() onToggled = new EventEmitter<MouseEvent>;

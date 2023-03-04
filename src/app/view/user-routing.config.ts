@@ -1,9 +1,9 @@
 import {Routes} from "@angular/router";
 import {IndexComponent} from "./index.component";
 import {DashboardComponent} from "./component/dashboard/dashboard.component";
-import {PersonalCenterComponent} from "./component/personal-center/personal-center.component";
 import {FavoriteComponent} from "./component/favorite/favorite.component";
-import {InfoComponent} from "./component/info/info.component";
+import {AboutComponent} from "./component/about/about.component";
+import {TodoComponent} from "./component/todo/todo.component";
 
 
 export const USER_ROUTES: Routes = [
@@ -17,13 +17,13 @@ export const USER_ROUTES: Routes = [
                 path: 'dashboard', component: DashboardComponent
             },
             {
-                path: 'personal_center', component: PersonalCenterComponent
-            },
-            {
                 path: 'favorite', component: FavoriteComponent
             },
             {
-                path: 'info', component: InfoComponent
+                path: 'about', component: AboutComponent
+            },
+            {
+                path: 'todo', component: TodoComponent
             }
         ]
     },

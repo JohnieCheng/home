@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './error404-page.component.html',
-  styleUrls: ['./error404-page.component.css']
+  styleUrls: ['./error404-page.component.scss']
 })
 export class Error404PageComponent {
 

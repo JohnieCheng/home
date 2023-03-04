@@ -21,7 +21,7 @@ import {MatButtonModule} from "@angular/material/button";
     standalone: true,
     imports: [CommonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, FormsModule, MatButtonModule],
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css'],
+    styleUrls: ['./login.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements AfterViewInit, OnDestroy {
