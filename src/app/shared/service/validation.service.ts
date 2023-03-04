@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
-import {validateEmail, validatePassword} from "../tools/regexr-util";
+import {validateEmail, validatePassword} from "../tools/regexr-utils";
 
 @Injectable({
     providedIn: 'root'

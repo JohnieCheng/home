@@ -1,25 +1,23 @@
-<p>login works!</p>
-<a routerLink="/register">注册</a>
-<div></div>
-<a routerLink="/">登录成功</a>
+<!--<p>login works!</p>-->
+<!--<a routerLink="/register">注册</a>-->
+<!--<div></div>-->
+<!--<a routerLink="/">登录成功</a>-->
+<div class="loginFormContainer">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="loginForm">
         <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
             <input matInput placeholder="pat@example.com" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
             <input matInput placeholder="password" [formControl]="password" required>
             <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
         </mat-form-field>
-    </div>
 
+        <button mat-stroked-button type="submit">Submit</button>
+    </form>
 
-    <button mat-stroked-button type="submit">Submit</button>
-</form>
-<button (click)="reset()">Set preset value</button>
-<button #addButton (click)="addBtn()">add button</button>
-
+</div>

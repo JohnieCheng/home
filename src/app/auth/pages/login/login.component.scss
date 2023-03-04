@@ -1,5 +1,12 @@
-.loginForm {
+.loginFormContainer {
+  width: 550px;
+  height: 350px;
+
+
+
+  form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
 }

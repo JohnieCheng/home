@@ -1,12 +1,4 @@
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    Component,
-    ElementRef,
-    OnDestroy,
-    Renderer2,
-    ViewChild
-} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, Renderer2} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink} from "@angular/router";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -15,6 +7,7 @@ import {MatInputModule} from "@angular/material/input";
 import {Subject} from "rxjs";
 import {ValidationService} from "../../../shared/service/validation.service";
 import {MatButtonModule} from "@angular/material/button";
+import {getControlErrorContent} from "../../../shared/tools/form-utils";
 
 @Component({
     selector: 'app-login',
@@ -57,36 +50,28 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
     }
 
     getErrorMessage(formControl: FormControl) {
-        if (formControl.hasError('required')) {
-            return 'You must enter a value';
-        }
-        if (formControl.hasError('email')) {
-            return 'Not a valid email';
-        }
-        if (formControl.hasError('password')) {
-            return 'Not a valid password';
-        }
-        return '';
+        return getControlErrorContent(formControl);
     }
 
     onSubmit() {
         console.log(this.window);
     }
 
-    reset() {
-        this.loginForm?.reset();
-    }
-
-
-    @ViewChild('addButton')
-    private animateThis!: ElementRef;
-
-    addBtn() {
-        const button = this.renderer.createElement('button');
-        const buttonText = this.renderer.createText('This is a button');
-        this.renderer.appendChild(button, buttonText);
-        this.renderer.appendChild(this.animateThis.nativeElement, button);
-    }
+    //
+    // reset() {
+    //     this.loginForm?.reset();
+    // }
+    //
+    //
+    // @ViewChild('addButton')
+    // private animateThis!: ElementRef;
+    //
+    // addBtn() {
+    //     const button = this.renderer.createElement('button');
+    //     const buttonText = this.renderer.createText('This is a button');
+    //     this.renderer.appendChild(button, buttonText);
+    //     this.renderer.appendChild(this.animateThis.nativeElement, button);
+    // }
 
     ngAfterViewInit() {
         this.renderer.addClass(document.body, 'bg-linear');
