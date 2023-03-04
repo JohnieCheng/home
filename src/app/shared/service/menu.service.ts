@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {catchError, Observable, retry} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {handleError} from "../../tools/handle-error";
-import {Menu} from "../../classes/menu";
+import {handleError} from "../tools/handle-error";
+import {Menu} from "../classes/menu";
 
 @Injectable({
   providedIn: 'root'

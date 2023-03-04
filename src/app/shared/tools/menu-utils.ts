@@ -1,7 +1,15 @@
 import {Menu} from "../classes/menu";
 import {MenuVo} from "../interfaces/menu-vo";
 
-function fillTopMenus(menus: Menu[]) {
+export function transToMenuVoArr(menus: Menu[]): MenuVo[] {
+    let result: MenuVo[];
+    menus.sort((a, b) => a.no.localeCompare(b.no));
+    result = fillTopMenus(menus);
+    fillSubMenus(result, menus);
+    return result;
+}
+
+function fillTopMenus(menus: Menu[]):MenuVo[] {
   return menus.filter(menu => menu.isTopMenu).map(menu => ({
     no: menu.no,
     customName: menu.customName,
@@ -10,14 +18,6 @@ function fillTopMenus(menus: Menu[]) {
     seqNum: menu.seqNum,
     menus: []
   }));
-}
-
-export function transToMenuVoArr(menus: Menu[]): MenuVo[] {
-  let result: MenuVo[];
-  menus.sort((a, b) => a.no.localeCompare(b.no));
-  result = fillTopMenus(menus);
-  fillSubMenus(result, menus);
-  return result;
 }
 
 function fillSubMenus(menuVos: MenuVo[], menus: Menu[]) {

@@ -4,7 +4,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MenuVo} from "../interfaces/menu-vo";
 import {RouterLink} from "@angular/router";
-import {MenuService} from "../service/menu/menu.service";
+import {MenuService} from "../service/menu.service";
 import {transToMenuVoArr} from "../tools/menu-utils";
 
 @Component({
@@ -23,7 +23,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuService.getMenuVos().subscribe(menus => {
-      debugger
       this.menus = transToMenuVoArr(menus);
     })
   }
