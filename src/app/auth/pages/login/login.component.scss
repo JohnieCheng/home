@@ -10,16 +10,18 @@
 
 $primary: #FF4081;
 
-body {
-  background: lighten($primary, 1.25);
+.container {
+  background: lighten($primary, 25%);
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .panda {
   position: relative;
   width: 200px;
-  margin: 50px auto;
+  margin: 0 auto;
+  padding: 50px 0;
 
 }
 
@@ -28,7 +30,8 @@ body {
   height: 200px;
   background: #fff;
   @include border-radius(100%);
-  margin: 50px auto;
+  //margin: 0px auto;
+  padding: 50px 0;
   @include box-shadow(0 10px 15px rgba(0, 0, 0, .15));
   z-index: 50;
   position: relative;
@@ -42,14 +45,15 @@ body {
   background: #000;
   z-index: 5;
   border: 10px solid #fff;
-  left: -15px;
-  top: -15px;
+  left: -10px;
+  top: 30px;
   @include border-radius(100%);
 
   &:after {
     content: '';
     @extend .ear;
     left: 125px;
+    top: -10px;
   }
 }
 
@@ -129,9 +133,9 @@ body {
   background: #fff;
   position: absolute;
   top: 200px;
-  left: -20px;
+  left: -40px;
   @include border-radius(100px 100px 100px 100px / 126px 126px 96px 96px);
-  width: 250px;
+  width: 280px;
   height: 282px;
   @include box-shadow(0 5px 10px rgba(0, 0, 0, .3));
 }
@@ -170,7 +174,7 @@ body {
 }
 
 .foot {
-  top: 360px;
+  top: 420px;
   left: -80px;
   position: absolute;
   background: #000;
@@ -292,50 +296,6 @@ form {
 h1 {
   color: $primary;
   font-family: 'Dancing Script', cursive;
-}
-
-.alert {
-  position: absolute;
-  color: #f00;
-  font-size: 16px;
-  right: -180px;
-  top: -300px;
-  z-index: 200;
-  padding: 30px 25px;
-  background: #fff;
-  @include box-shadow(0 3px 5px rgba(0, 0, 0, .2));
-  @include border-radius(50%);
-  opacity: 0;
-  @include scale(0);
-  @include transition(.4s .6s linear);
-
-  &:after, &:before {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background: #fff;
-    left: -19px;
-    bottom: -8px;
-    @include box-shadow(0 2px 5px rgba(0, 0, 0, .2));
-    @include border-radius(50%);
-  }
-
-  &:before {
-    width: 15px;
-    height: 15px;
-    left: -35px;
-    bottom: -25px;
-  }
-}
-
-.wrong-entry {
-  @include animation(wrong-log 0.3s);
-
-  .alert {
-    opacity: 1;
-    @include scale(1);
-  }
 }
 
 @include keyframes(eye-blink) {
