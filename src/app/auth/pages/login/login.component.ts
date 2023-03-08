@@ -19,6 +19,7 @@ import {ValidationService} from "../../../shared/service/validation.service";
 import {MatButtonModule} from "@angular/material/button";
 import {getControlErrorContent} from "../../../shared/tools/form-utils";
 import {AuthService} from "../../shared/auth.service";
+import {handleError} from "../../../shared/tools/handle-error";
 
 @Component({
   selector: 'app-login',
@@ -93,7 +94,18 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSubmit() {
-    this.router.navigate(['/user']).then(null);
+    const {email, password} = this.loginForm.getRawValue();
+    this.authService.login(email, password).subscribe({
+      next: (value) => {
+        console.log(value);
+
+      },
+      error: (error: any) => {
+        handleError(error);
+      }
+    });
+
+    // this.router.navigate(['/user']).then(null);
 
     // if (this.loginForm.valid) {
     //   this.isLoginButtonLoading = true;
@@ -153,6 +165,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     //     }
     // }
     // this.isLoginButtonLoading = networkError;
+    console.log(error);
     this.changeDetectorRef.detectChanges();
   }
 
