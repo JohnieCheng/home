@@ -52,4 +52,11 @@ export class AuthService {
         return this.http.post<SysUser>(this.url + '/user', loginVo).pipe(retry(3));
     }
 
+    getToken(): string {
+        let item = localStorage.getItem('cur_token') || '';
+        let currToken = JSON.parse(item);
+        let token = currToken && currToken.token;
+        return token ? token : '';
+    }
+
 }
