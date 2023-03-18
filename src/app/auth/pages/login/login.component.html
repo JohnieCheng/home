@@ -1,43 +1,43 @@
 <div class="container">
-  <div class="panda">
-    <div class="ear"></div>
-    <div class="face">
-      <div class="eye-shade"></div>
-      <div class="eye-white">
-        <div class="eye-ball" #leftEyeBall></div>
-      </div>
-      <div class="eye-shade rgt"></div>
-      <div class="eye-white rgt">
-        <div class="eye-ball" #rightEyeBall></div>
-      </div>
-      <div class="nose"></div>
-      <div class="mouth"></div>
+    <div class="panda">
+        <div class="ear"></div>
+        <div class="face">
+            <div class="eye-shade"></div>
+            <div class="eye-white">
+                <div class="eye-ball" #leftEyeBall></div>
+            </div>
+            <div class="eye-shade rgt"></div>
+            <div class="eye-white rgt">
+                <div class="eye-ball" #rightEyeBall></div>
+            </div>
+            <div class="nose"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="body"></div>
+        <div class="foot">
+            <div class="finger"></div>
+        </div>
+        <div class="foot rgt">
+            <div class="finger"></div>
+        </div>
     </div>
-    <div class="body"></div>
-    <div class="foot">
-      <div class="finger"></div>
-    </div>
-    <div class="foot rgt">
-      <div class="finger"></div>
-    </div>
-  </div>
-  <form #form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="hand"></div>
-    <div class="hand rgt"></div>
-    <h1>Panda Login</h1>
-    <mat-form-field appearance="fill" color=accent>
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
-    </mat-form-field>
+    <form #form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="hand"></div>
+        <div class="hand rgt"></div>
+        <h1>Panda Login</h1>
+        <mat-form-field appearance="fill" color=accent>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" color=accent>
-      <mat-label>Enter your password</mat-label>
-      <input #pwd matInput placeholder="password" [formControl]="password" required>
-      <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
-    </mat-form-field>
-    <button mat-stroked-button type="submit">Submit</button>
-  </form>
+        <mat-form-field appearance="fill" color=accent>
+            <mat-label>Enter your password</mat-label>
+            <input #pwd matInput placeholder="password" [formControl]="password" required>
+            <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+        </mat-form-field>
+        <button mat-stroked-button type="submit">Submit</button>
+    </form>
 
 
 </div>

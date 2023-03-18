@@ -1,7 +1,6 @@
-import {User} from "../classes/user.model";
+import {SysUser} from "../classes/sys-user-entity.model";
 
 export interface AuthUserData {
     accessToken: string;
-    refreshToken: string;
-    user: User;
+    user: SysUser
 }

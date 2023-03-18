@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(APP_ROUTES,
-            withDebugTracing(),
+            // withDebugTracing(),
             withRouterConfig(
                 {
                     paramsInheritanceStrategy: 'always',

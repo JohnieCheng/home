@@ -28,147 +28,28 @@
 
 import {Injectable} from "@angular/core";
 import {Observable, retry} from "rxjs";
-import {AuthUserData} from "./interfaces/register-data.interface";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {AuthUserData} from "./interfaces/register-data.interface";
+import {RegisterVo} from "./interfaces/register-vo.interface";
+import {SysUser} from "./classes/sys-user-entity.model";
+import {LoginVo} from "./interfaces/login-vo.interface";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class AuthService {
-  private url = "http://localhost:9090";
+    private url = environment.webServiceEndpoint + 'api/v1/auth';
 
-  constructor(private http: HttpClient) {
-  }
-
-  // static decodeToken(token: string): { exp: number } | null {
-  //     try {
-  //         return jwt_decode(token);
-  //     } catch (e) {
-  //         return null;
-  //     }
-  // }
-
-  // signup({firstname, email, password}: RegisterPayload): Observable<AuthUserData | null> {
-  //     return this.apollo
-  //         .mutate({
-  //             mutation: signupMutation,
-  //             variables: {
-  //                 firstname,
-  //                 email,
-  //                 password,
-  //             },
-  //         })
-  //         .pipe(
-  //             map((response: unknown) => {
-  //                 const registerData = (response as RegisterResponse).data?.signup;
-  //                 if (registerData) {
-  //                     this.saveUserData(registerData);
-  //                     return registerData;
-  //                 }
-  //                 return null;
-  //             })
-  //         );
-  // }
-
-  // login(email: string, password: string): Observable<AuthUserData | null> {
-  login(email: string, password: string): Observable<any> {
-    let vo = {
-      email: email,
-      password: password
+    constructor(private http: HttpClient) {
     }
-    return this.http.post(this.url + '/user', vo).pipe(retry(3));
-    // return new Observable<AuthUserData | null>(subscriber => {
-    //   // localStorage.setItem('email', email);
-    //   // localStorage.setItem('password', password);
-    // })
-  }
 
-  // updateUser(userData: UpdateUserData): Observable<User | null> {
-  //     return this.apollo
-  //         .mutate({
-  //             mutation: updateUserMutation,
-  //             variables: userData,
-  //         })
-  //         .pipe(
-  //             map((response: unknown) => {
-  //                 const updateUserData = (response as UpdateUserResponse).data?.updateUser;
-  //                 if (updateUserData) {
-  //                     this.authRepository.setUser(updateUserData);
-  //                     return updateUserData;
-  //                 }
-  //                 return null;
-  //             })
-  //         );
-  // }
+    signup(registerVo: RegisterVo): Observable<AuthUserData | null> {
+        return this.http.post<AuthUserData>(this.url + '/register', registerVo);
+    }
 
-  // changePassword(oldPassword: string, newPassword: string): Observable<OkData | null> {
-  //     return this.apollo
-  //         .mutate({
-  //             mutation: changePasswordMutation,
-  //             variables: {
-  //                 oldPassword,
-  //                 newPassword,
-  //             },
-  //         })
-  //         .pipe(
-  //             map((response: unknown) => {
-  //                 const changePasswordData = (response as ChangePasswordResponse).data?.changePassword;
-  //                 if (changePasswordData) {
-  //                     return changePasswordData;
-  //                 }
-  //                 return null;
-  //             })
-  //         );
-  // }
+    login(loginVo: LoginVo): Observable<SysUser> {
+        return this.http.post<SysUser>(this.url + '/user', loginVo).pipe(retry(3));
+    }
 
-  // deleteAccount(password: string): Observable<OkData | null> {
-  //     return this.apollo
-  //         .mutate({
-  //             mutation: deleteAccountMutation,
-  //             variables: {
-  //                 password,
-  //             },
-  //         })
-  //         .pipe(
-  //             map((response: unknown) => {
-  //                 const deleteAccountData = (response as DeleteAccountResponse).data?.deleteAccount;
-  //                 if (deleteAccountData) {
-  //                     return deleteAccountData;
-  //                 }
-  //                 return null;
-  //             })
-  //         );
-  // }
-
-  // refreshToken(): Observable<UpdateTokenData | null> {
-  //     const refreshToken = this.authRepository.getRefreshTokenValue() || '';
-  //     return this.apollo
-  //         .mutate({
-  //             mutation: refreshTokenMutation,
-  //             context: {
-  //                 headers: {[AppConfig.bypassAuthorization]: 'true'},
-  //             },
-  //             variables: {
-  //                 refreshToken,
-  //             },
-  //         })
-  //         .pipe(
-  //             map((response: unknown) => {
-  //                 const refreshTokenData = (response as RefreshTokenResponse).data?.refreshToken;
-  //                 if (refreshTokenData) {
-  //                     this.authRepository.updateTokens(
-  //                         refreshTokenData.accessToken,
-  //                         refreshTokenData.refreshToken
-  //                     );
-  //                     return refreshTokenData;
-  //                 }
-  //                 return null;
-  //             })
-  //         );
-  // }
-
-  // private saveUserData(userData: AuthUserData) {
-  //     this.authRepository.updateTokens(userData.accessToken, userData.refreshToken);
-  //     this.authRepository.setUser(userData.user);
-  // }
 }
