@@ -5,7 +5,6 @@ import {
     Component,
     ElementRef,
     OnDestroy,
-    OnInit,
     Renderer2,
     ViewChild
 } from '@angular/core';
@@ -31,7 +30,7 @@ import {AuthUserData} from "../../shared/interfaces/register-data.interface";
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [AuthService]
 })
-export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
+export class LoginComponent implements AfterViewInit, OnDestroy {
     loginForm!: FormGroup;
     email!: FormControl;
     password!: FormControl;
@@ -62,10 +61,6 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
         this.window = document.defaultView as Window;
         this.isLoginButtonLoading = false;
         this.buildForm();
-    }
-
-    ngOnInit(): void {
-        //todo
     }
 
     ngAfterViewInit() {

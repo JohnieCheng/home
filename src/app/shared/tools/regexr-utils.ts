@@ -9,3 +9,7 @@ export const validateEmail = (email: string) => {
 export const validatePassword = (password: string) => {
     return password?.match(passwordRegExp);
 };
+
+export const validateConfirmPassword = (password: string, confirmPassword: string) => {
+    return password === confirmPassword;
+};

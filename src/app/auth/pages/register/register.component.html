@@ -1,2 +1,23 @@
-<p>register works!</p>
-<a routerLink="/login">登录</a>
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <h1>Panda Register</h1>
+        <mat-form-field appearance="fill" color=accent>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" color=accent>
+            <mat-label>Enter your password</mat-label>
+            <input matInput type="password" placeholder="password" [formControl]="password" required>
+            <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" color=accent>
+            <mat-label>confirm your password</mat-label>
+            <input matInput type="password" placeholder="confirm password" [formControl]="confirmPassword" required>
+            <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessage(confirmPassword)}}</mat-error>
+        </mat-form-field>
+        <button mat-stroked-button type="submit">Sign Up</button>
+    </form>
+</div>
+

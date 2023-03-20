@@ -33,7 +33,7 @@
 
         <mat-form-field appearance="fill" color=accent>
             <mat-label>Enter your password</mat-label>
-            <input #pwd matInput placeholder="password" [formControl]="password" required>
+            <input #pwd matInput type="password" placeholder="password" [formControl]="password" required>
             <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
         </mat-form-field>
         <button mat-stroked-button type="submit">Submit</button>
